@@ -1,9 +1,11 @@
 import type { Metadata } from "next";
-import { Button } from "@/components/ui/button";
 import Image from "next/image";
+import { Analytics } from "@vercel/analytics/react";
+
+import { Button } from "@/components/ui/button";
+import { BebasRegular, GeistMono, GeistSans } from "@/components/fonts";
 
 import "./globals.css";
-import { BebasRegular, GeistMono, GeistSans } from "@/components/fonts";
 
 export const metadata: Metadata = {
   title: "Burpham Football Club",
@@ -58,6 +60,7 @@ export default function RootLayout({
             </div>
           </nav>
           {children}
+          <Analytics />
         </div>
       </body>
     </html>

@@ -3,10 +3,11 @@ import Image from "next/image";
 import { Analytics } from "@vercel/analytics/react";
 import { SpeedInsights } from "@vercel/speed-insights/next";
 
-import { Button } from "@/components/ui/button";
+import { MainNav } from "@/components/main-nav";
 import { BebasRegular, GeistMono, GeistSans } from "@/components/fonts";
 
 import "./globals.css";
+import Link from "next/link";
 
 export const metadata: Metadata = {
   title: "Burpham Football Club",
@@ -24,8 +25,8 @@ export default function RootLayout({
         className={`${GeistSans.variable} ${GeistMono.variable} antialiased`}
       >
         <div className="bg-gradient-to-b from-background-start to-background-start">
-          <nav className="flex items-center justify-between p-4 lg:px-8">
-            <div className="flex items-center gap-4">
+          <div className="flex items-center justify-between p-4 lg:px-8">
+            <Link href="/" className="flex items-center gap-4 z-10">
               <Image
                 src="/Logo_2024.png"
                 alt="Burpham Football Club"
@@ -38,28 +39,9 @@ export default function RootLayout({
                 Burpham{" "}
                 <span className="text-burpham-yellow">Football Club</span>
               </h1>
-            </div>
-            <div className="hidden sm:flex items-center gap-3 z-10">
-              <Button
-                variant="ghost"
-                className="text-zinc-200 hover:text-burpham-yellow hover:bg-burpham-green"
-              >
-                About Us
-              </Button>
-              <Button
-                variant="ghost"
-                className="text-zinc-200 hover:text-burpham-yellow hover:bg-burpham-green"
-              >
-                Match Reports
-              </Button>
-              <Button
-                variant="ghost"
-                className="text-white bg-burpham-green hover:bg-burpham-yellow"
-              >
-                Get Stuck In
-              </Button>
-            </div>
-          </nav>
+            </Link>
+            <MainNav />
+          </div>
           {children}
           <SpeedInsights />
           <Analytics />

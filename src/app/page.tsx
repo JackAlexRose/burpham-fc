@@ -10,9 +10,9 @@ export default function Home() {
   return (
     <div>
       {/* Hero Section */}
-      <div className="container mx-auto grid gap-8 px-4 py-12 lg:grid-cols-2 lg:py-24">
+      <div className="container mx-auto grid gap-8 px-4 xs:py-6 sm:py-12 lg:grid-cols-2 lg:py-24">
         <div
-          className="absolute inset-0 w-full h-[900px] lg:h-[750px] xl:h-[850px]"
+          className="absolute inset-0 w-full h-[800px] sm:h-[900px] lg:h-[750px] xl:h-[850px]"
           style={{
             backgroundImage: "url('pitch.png')",
             backgroundSize: "cover",

@@ -38,7 +38,7 @@ export default function RootLayout({
                 <span className="text-burpham-yellow">Football Club</span>
               </h1>
             </div>
-            <div className="hidden sm:flex items-center gap-3">
+            <div className="hidden sm:flex items-center gap-3 z-10">
               <Button
                 variant="ghost"
                 className="text-zinc-200 hover:text-burpham-yellow hover:bg-burpham-green"

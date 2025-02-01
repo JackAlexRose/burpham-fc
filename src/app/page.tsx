@@ -11,7 +11,16 @@ export default function Home() {
     <div>
       {/* Hero Section */}
       <div className="container mx-auto grid gap-8 px-4 py-12 lg:grid-cols-2 lg:py-24">
-        <div className="flex flex-col justify-center space-y-6">
+        <div
+          className="absolute inset-0 w-full h-[900px] lg:h-[750px] xl:h-[850px]"
+          style={{
+            backgroundImage: "url('pitch.png')",
+            backgroundSize: "cover",
+            backgroundPosition: "center",
+            opacity: 0.1,
+          }}
+        />
+        <div className="flex flex-col justify-center space-y-6 z-10">
           <div className="space-y-2">
             <h2 className="text-2xl font-medium text-white">We are</h2>
             <h1

@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import Image from "next/image";
 import { Analytics } from "@vercel/analytics/react";
+import { SpeedInsights } from "@vercel/speed-insights/next";
 
 import { Button } from "@/components/ui/button";
 import { BebasRegular, GeistMono, GeistSans } from "@/components/fonts";
@@ -60,6 +61,7 @@ export default function RootLayout({
             </div>
           </nav>
           {children}
+          <SpeedInsights />
           <Analytics />
         </div>
       </body>

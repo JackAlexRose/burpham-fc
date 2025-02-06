@@ -1,17 +1,40 @@
+"use client";
+import { useQuery } from "@tanstack/react-query";
+
 interface LeagueTableProps {
-  team: "first" | "reserves";
+  team: string;
 }
+
+const fetchLeagueTable = async (table: string) => {
+  const response = await fetch(`/api/league-table?table=${table}`);
+  if (!response.ok) {
+    throw new Error("Failed to fetch league table");
+  }
+  return response.json();
+};
 
 // eslint-disable-next-line @typescript-eslint/no-unused-vars
 export function LeagueTable({ team }: LeagueTableProps) {
-  // Sample data - replace with real data
-  const teams = [
-    { pos: 1, name: "Team A", played: 10, points: 25 },
-    { pos: 2, name: "Team B", played: 10, points: 22 },
-    { pos: 3, name: "Team C", played: 10, points: 19 },
-    { pos: 4, name: "Team D", played: 10, points: 16 },
-    { pos: 5, name: "Team E", played: 10, points: 13 },
-  ];
+  const { data, isLoading, isError } = useQuery({
+    queryKey: ["league-table", team],
+    queryFn: () => fetchLeagueTable(team),
+  });
+
+  if (isLoading) {
+    return <p className="text-white">Loading...</p>;
+  }
+
+  if (isError) {
+    return <p className="text-white">League table currently unavailable</p>;
+  }
+
+  const teams = data as {
+    POS: string;
+    Team: string;
+    P: string;
+    PTS: string;
+    GD: string;
+  }[];
 
   return (
     <div className="overflow-x-auto">
@@ -22,15 +45,21 @@ export function LeagueTable({ team }: LeagueTableProps) {
             <th className="p-2 text-left text-sm text-zinc-400">Team</th>
             <th className="p-2 text-left text-sm text-zinc-400">P</th>
             <th className="p-2 text-left text-sm text-zinc-400">Pts</th>
+            <th className="p-2 text-left text-sm text-zinc-400">GD</th>
           </tr>
         </thead>
         <tbody>
           {teams.map((team) => (
-            <tr key={team.pos} className="border-b border-zinc-800">
-              <td className="p-2 text-sm text-zinc-300">{team.pos}</td>
-              <td className="p-2 text-sm text-zinc-300">{team.name}</td>
-              <td className="p-2 text-sm text-zinc-300">{team.played}</td>
-              <td className="p-2 text-sm text-zinc-300">{team.points}</td>
+            <tr key={team.POS} className="border-b border-zinc-800">
+              <td className="p-2 text-sm text-zinc-300">{team.POS}</td>
+              {team.Team.includes("Burpham") ? (
+                <td className="p-2 text-sm text-burpham-yellow">{team.Team}</td>
+              ) : (
+                <td className="p-2 text-sm text-zinc-300">{team.Team}</td>
+              )}
+              <td className="p-2 text-sm text-zinc-300">{team.P}</td>
+              <td className="p-2 text-sm text-zinc-300">{team.PTS}</td>
+              <td className="p-2 text-sm text-zinc-300">{team.GD}</td>
             </tr>
           ))}
         </tbody>

@@ -5,6 +5,7 @@ import { LeagueTable } from "@/components/league-table";
 import { NextFixtures } from "@/components/next-fixtures";
 import { YoutubeEmbed } from "@/components/youtube-embed";
 import { BebasRegular } from "@/components/fonts";
+import { QueryClientProviderWrapper } from "@/components/query-client-provider";
 
 export default function Home() {
   return (
@@ -65,7 +66,9 @@ export default function Home() {
               <CardTitle className="text-white">First Team Table</CardTitle>
             </CardHeader>
             <CardContent>
-              <LeagueTable team="first" />
+              <QueryClientProviderWrapper>
+                <LeagueTable team="64118803" />
+              </QueryClientProviderWrapper>
             </CardContent>
           </Card>
           <Card className="bg-zinc-900/50">
@@ -73,7 +76,9 @@ export default function Home() {
               <CardTitle className="text-white">Reserves Team Table</CardTitle>
             </CardHeader>
             <CardContent>
-              <LeagueTable team="reserves" />
+              <QueryClientProviderWrapper>
+                <LeagueTable team="159327489" />
+              </QueryClientProviderWrapper>
             </CardContent>
           </Card>
         </div>

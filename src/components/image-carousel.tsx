@@ -7,8 +7,9 @@ import {
   CarouselItem,
 } from "@/components/ui/carousel";
 import Autoplay from "embla-carousel-autoplay";
+import Image from "next/image";
 
-const images = ["/1.png", "/2.png", "/3.png"];
+const images = ["/1.jpg", "/2.jpg", "/3.jpg", "/4.jpg"];
 
 export function ImageCarousel() {
   // eslint-disable-next-line @typescript-eslint/no-explicit-any
@@ -33,12 +34,14 @@ export function ImageCarousel() {
           delay: 4000,
         }),
       ]}
-      className="h-full w-full"
+      className="w-full h-fit"
     >
       <CarouselContent>
         {images.map((src, index) => (
           <CarouselItem key={index} className="h-full">
-            <img
+            <Image
+              width={800}
+              height={800}
               src={src}
               alt={`Slide ${index + 1}`}
               className="h-full w-full object-cover"

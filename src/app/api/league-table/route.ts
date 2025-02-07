@@ -1,7 +1,7 @@
 import { NextRequest, NextResponse } from "next/server";
 import * as cheerio from "cheerio";
 
-const BASE_URL = "https://fulltime.thefa.com/js/cs1.html";
+import { BASE_URL } from "../constants";
 
 const fetchLeagueTable = async (table: string) => {
   try {

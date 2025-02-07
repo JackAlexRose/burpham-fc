@@ -23,10 +23,6 @@ const routes = [
     label: "About Us",
   },
   {
-    href: "/match-reports",
-    label: "Match Reports",
-  },
-  {
     href: "/get-involved",
     label: "Get Stuck In",
   },
@@ -81,19 +77,6 @@ export function MainNav() {
               className="text-zinc-200 hover:text-burpham-yellow hover:bg-burpham-green"
             >
               About Us
-            </Button>
-          </Link>
-          <Link
-            key={"/match-reports"}
-            href={"/match-reports"}
-            className="w-full h-full flex items-center justify-center"
-            onClick={() => setIsOpen(false)}
-          >
-            <Button
-              variant="ghost"
-              className="text-zinc-200 hover:text-burpham-yellow hover:bg-burpham-green"
-            >
-              Match Reports
             </Button>
           </Link>
           <Link

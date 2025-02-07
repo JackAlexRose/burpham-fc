@@ -2,7 +2,7 @@ import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { ImageCarousel } from "@/components/image-carousel";
 import { LeagueTable } from "@/components/league-table";
-import { NextFixtures } from "@/components/next-fixtures";
+import { UpcomingFixtures } from "@/components/upcoming-fixtures";
 import { YoutubeEmbed } from "@/components/youtube-embed";
 import { BebasRegular } from "@/components/fonts";
 import { QueryClientProviderWrapper } from "@/components/query-client-provider";
@@ -55,10 +55,12 @@ export default function Home() {
         <div className="grid gap-6 md:grid-cols-2 lg:grid-cols-3">
           <Card className="bg-zinc-900/50">
             <CardHeader>
-              <CardTitle className="text-white">Next Fixtures</CardTitle>
+              <CardTitle className="text-white">Upcoming Fixtures</CardTitle>
             </CardHeader>
             <CardContent>
-              <NextFixtures />
+              <QueryClientProviderWrapper>
+                <UpcomingFixtures table="601917298" />
+              </QueryClientProviderWrapper>
             </CardContent>
           </Card>
           <Card className="bg-zinc-900/50">

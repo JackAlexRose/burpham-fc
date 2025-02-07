@@ -35,8 +35,8 @@ export default function Home() {
             </h1>
           </div>
           <p className="text-lg text-zinc-200">
-            All ages and abilities are invited to come and join us. We have
-            teams for everyone.
+            Whether you&apos;re an experienced player or a complete beginner, we
+            have a place for you at our club.
           </p>
           <div className="flex gap-4">
             <Link href="/get-involved" className="z-10">

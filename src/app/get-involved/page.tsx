@@ -9,9 +9,13 @@ export default function GetInvolved() {
       <p className="mb-8 text-zinc-300">
         Burpham Football Club is always looking for new players, coaches, and
         volunteers to join our team. Whether you&apos;re an experienced player
-        or a complete beginner, we have a place for you at our club. Get in
-        touch today to find out how you can get involved and help us continue
-        our success on and off the pitch.
+        or a complete beginner, we have a place for you at our club.
+      </p>
+      <p className="mb-8 text-zinc-300">
+        We train every week on Wednesdays at 7:30pm - 9pm at George Abbot School
+        in Burpham. If you&apos;re interested in playing, please come along to
+        one of our training sessions or get in touch with us via email or social
+        media.
       </p>
       <div className="mb-8">
         <h2 className="mb-4 text-2xl font-semibold text-white">

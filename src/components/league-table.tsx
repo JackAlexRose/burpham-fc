@@ -38,17 +38,17 @@ export function LeagueTable({ team }: LeagueTableProps) {
           {[1, 2, 3, 4, 5].map((index) => (
             <tr key={index} className="border-b border-zinc-800">
               <td className="p-2 text-sm text-zinc-300">
-                <Skeleton className="w-[25px] h-[16px] rounded-full" />
+                <Skeleton className="w-[25px] h-[16px] rounded-full bg-burpham-green" />
               </td>
               <td className="p-2 text-sm text-zinc-300">Loading...</td>
               <td className="p-2 text-sm text-zinc-300">
-                <Skeleton className="w-[25px] h-[16px] rounded-full" />
+                <Skeleton className="w-[25px] h-[16px] rounded-full bg-burpham-green" />
               </td>
               <td className="p-2 text-sm text-zinc-300">
-                <Skeleton className="w-[25px] h-[16px] rounded-full" />
+                <Skeleton className="w-[25px] h-[16px] rounded-full bg-burpham-green" />
               </td>
               <td className="p-2 text-sm text-zinc-300">
-                <Skeleton className="w-[25px] h-[16px] rounded-full" />
+                <Skeleton className="w-[25px] h-[16px] rounded-full bg-burpham-green" />
               </td>
             </tr>
           ))}

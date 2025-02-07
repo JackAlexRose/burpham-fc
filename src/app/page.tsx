@@ -1,3 +1,5 @@
+import Link from "next/link";
+
 import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { ImageCarousel } from "@/components/image-carousel";
@@ -37,12 +39,14 @@ export default function Home() {
             teams for everyone.
           </p>
           <div className="flex gap-4">
-            <Button
-              variant="ghost"
-              className="text-white bg-burpham-green hover:bg-burpham-yellow"
-            >
-              Get Stuck In
-            </Button>
+            <Link href="/get-involved" className="z-10">
+              <Button
+                variant="ghost"
+                className="text-white bg-burpham-green hover:bg-burpham-yellow"
+              >
+                Get Stuck In
+              </Button>
+            </Link>
           </div>
         </div>
         <div className="relative h-[400px] overflow-hidden rounded-xl lg:h-[600px]">

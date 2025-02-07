@@ -45,7 +45,7 @@ export function UpcomingFixtures({ table }: UpcomingFixturesProps) {
       {data.map((kickoff: Kickoff, index: number) => (
         <div key={index} className="space-y-4">
           {kickoff.matches.map((fixture: Match, index: number) => (
-            <>
+            <div key={index}>
               <div key={index} className="flex items-center justify-between">
                 <div className="text-xl font-semibold text-white">
                   {fixture.homeTeam} vs {fixture.awayTeam}
@@ -62,7 +62,7 @@ export function UpcomingFixtures({ table }: UpcomingFixturesProps) {
                   <span className="text-sm">{fixture.formattedLocation}</span>
                 </div>
               </div>
-            </>
+            </div>
           ))}
         </div>
       ))}

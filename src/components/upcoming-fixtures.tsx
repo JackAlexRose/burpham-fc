@@ -1,6 +1,8 @@
 "use client";
 import { useQuery } from "@tanstack/react-query";
 import { CalendarDays, MapPin } from "lucide-react";
+
+import { Skeleton } from "@/components/ui/skeleton";
 import { Kickoff, Match } from "@/app/api/types";
 
 interface UpcomingFixturesProps {
@@ -22,7 +24,16 @@ export function UpcomingFixtures({ table }: UpcomingFixturesProps) {
   });
 
   if (isLoading) {
-    return <div className="text-white">Loading...</div>;
+    return (
+      <div className="space-y-10">
+        {[1, 2, 3].map((index) => (
+          <div key={index} className="space-y-4">
+            <Skeleton className="w-[300px] h-[16px] rounded-full bg-burpham-green" />
+            <Skeleton className="w-[200px] h-[16px] rounded-full bg-burpham-green" />
+          </div>
+        ))}
+      </div>
+    );
   }
 
   if (isError) {

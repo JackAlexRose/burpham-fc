@@ -1,6 +1,8 @@
 "use client";
 import { useQuery } from "@tanstack/react-query";
 
+import { Skeleton } from "@/components/ui/skeleton";
+
 interface LeagueTableProps {
   team: string;
 }
@@ -21,7 +23,38 @@ export function LeagueTable({ team }: LeagueTableProps) {
   });
 
   if (isLoading) {
-    return <p className="text-white">Loading...</p>;
+    return (
+      <table className="w-full">
+        <thead>
+          <tr className="border-b border-zinc-800">
+            <th className="p-2 text-left text-sm text-zinc-400">Pos</th>
+            <th className="p-2 text-left text-sm text-zinc-400">Team</th>
+            <th className="p-2 text-left text-sm text-zinc-400">P</th>
+            <th className="p-2 text-left text-sm text-zinc-400">Pts</th>
+            <th className="p-2 text-left text-sm text-zinc-400">GD</th>
+          </tr>
+        </thead>
+        <tbody>
+          {[1, 2, 3, 4, 5].map((index) => (
+            <tr key={index} className="border-b border-zinc-800">
+              <td className="p-2 text-sm text-zinc-300">
+                <Skeleton className="w-[25px] h-[16px] rounded-full" />
+              </td>
+              <td className="p-2 text-sm text-zinc-300">Loading...</td>
+              <td className="p-2 text-sm text-zinc-300">
+                <Skeleton className="w-[25px] h-[16px] rounded-full" />
+              </td>
+              <td className="p-2 text-sm text-zinc-300">
+                <Skeleton className="w-[25px] h-[16px] rounded-full" />
+              </td>
+              <td className="p-2 text-sm text-zinc-300">
+                <Skeleton className="w-[25px] h-[16px] rounded-full" />
+              </td>
+            </tr>
+          ))}
+        </tbody>
+      </table>
+    );
   }
 
   if (isError) {

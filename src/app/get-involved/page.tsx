@@ -1,5 +1,5 @@
 import { Button } from "@/components/ui/button";
-import { Instagram, Mail, Youtube } from "lucide-react";
+import { Instagram, Youtube } from "lucide-react";
 import Link from "next/link";
 
 export default function GetInvolved() {

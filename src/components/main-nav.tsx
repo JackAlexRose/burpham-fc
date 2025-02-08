@@ -67,6 +67,14 @@ export function MainNav() {
       {/* Desktop Menu */}
       <nav className="hidden md:flex md:items-center md:gap-6">
         <div className="hidden sm:flex items-center md:gap-3 gap-0 z-10 justify-end">
+          <Link key={"/"} href={"/"} onClick={() => setIsOpen(false)}>
+            <Button
+              variant="ghost"
+              className="text-zinc-200 hover:text-burpham-yellow hover:bg-burpham-green"
+            >
+              Home
+            </Button>
+          </Link>
           <Link
             key={"/about-us"}
             href={"/about-us"}

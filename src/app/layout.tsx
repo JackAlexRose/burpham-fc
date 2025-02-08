@@ -10,8 +10,12 @@ import "./globals.css";
 import Link from "next/link";
 
 export const metadata: Metadata = {
-  title: "Burpham Football Club",
-  description: "The official website of Burpham Football Club.",
+  title: {
+    template: "%s | Burpham Football Club",
+    default: "Burpham Football Club",
+  },
+  description:
+    "The official website of Burpham Football Club, a community football club.",
 };
 
 export default function RootLayout({

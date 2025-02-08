@@ -4,6 +4,11 @@ import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import Image from "next/image";
 
+export const metadata = {
+  title: "About Us",
+  description: "Learn more about Burpham Football Club and our history.",
+};
+
 export default function AboutPage() {
   return (
     <div className="container mx-auto p-4 min-h-screen">

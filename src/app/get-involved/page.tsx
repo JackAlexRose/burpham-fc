@@ -2,6 +2,11 @@ import { Button } from "@/components/ui/button";
 import { Instagram, Youtube, Mail } from "lucide-react";
 import Link from "next/link";
 
+export const metadata = {
+  title: "Get Involved",
+  description: "Learn how you can get involved with Burpham Football Club.",
+};
+
 export default function GetInvolved() {
   return (
     <div className="container mx-auto p-4 min-h-screen">

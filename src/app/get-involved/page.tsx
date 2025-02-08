@@ -1,5 +1,5 @@
 import { Button } from "@/components/ui/button";
-import { Instagram, Youtube } from "lucide-react";
+import { Instagram, Youtube, Mail } from "lucide-react";
 import Link from "next/link";
 
 export default function GetInvolved() {
@@ -48,6 +48,20 @@ export default function GetInvolved() {
             >
               <Youtube className="mr-2 h-4 w-4" />
               YouTube
+            </Link>
+          </Button>
+          <Button
+            asChild
+            variant="ghost"
+            className="hover:bg-burpham-red bg-zinc-200"
+          >
+            <Link
+              href="mailto:" // Add your email address here
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              <Mail className="mr-2 h-4 w-4" />
+              burphamfc@gmail.com
             </Link>
           </Button>
         </div>

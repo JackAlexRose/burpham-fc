@@ -53,7 +53,7 @@ export default function GetInvolved() {
           <Button
             asChild
             variant="ghost"
-            className="hover:bg-burpham-red bg-zinc-200"
+            className="hover:bg-burpham-green bg-zinc-200"
           >
             <Link
               href="mailto:" // Add your email address here

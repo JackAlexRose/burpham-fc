@@ -88,6 +88,18 @@ export function MainNav() {
             </Button>
           </Link>
           <Link
+            key={"/match-reports"}
+            href={"/match-reports"}
+            onClick={() => setIsOpen(false)}
+          >
+            <Button
+              variant="ghost"
+              className="text-zinc-200 hover:text-burpham-yellow hover:bg-burpham-green"
+            >
+              Match Reports
+            </Button>
+          </Link>
+          <Link
             key={"/get-involved"}
             href={"/get-involved"}
             onClick={() => setIsOpen(false)}

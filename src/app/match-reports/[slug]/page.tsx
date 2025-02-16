@@ -29,17 +29,13 @@ const urlFor = (source: SanityImageSource) =>
 export const revalidate = 60;
 
 interface Props {
-  params: {
-    slug: string;
-  };
+  params: Promise<{ slug: string }>;
 }
 
 export async function generateMetadata({ params }: Props) {
-  console.log(params);
   const report = await client.fetch<MatchReport>(matchReportQuery, {
-    slug: params.slug,
+    slug: (await params).slug,
   });
-  console.log(report);
 
   if (!report) {
     return {
@@ -64,7 +60,7 @@ const components = {
 
 export default async function MatchReportPage({ params }: Props) {
   const report = await client.fetch<MatchReport>(matchReportQuery, {
-    slug: params.slug,
+    slug: (await params).slug,
   });
 
   if (!report) {

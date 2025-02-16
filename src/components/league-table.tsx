@@ -15,7 +15,6 @@ const fetchLeagueTable = async (table: string) => {
   return response.json();
 };
 
-// eslint-disable-next-line @typescript-eslint/no-unused-vars
 export function LeagueTable({ team }: LeagueTableProps) {
   const { data, isLoading, isError } = useQuery({
     queryKey: ["league-table", team],

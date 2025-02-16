@@ -23,6 +23,10 @@ const routes = [
     label: "About Us",
   },
   {
+    href: "/match-reports",
+    label: "Match Reports",
+  },
+  {
     href: "/get-involved",
     label: "Get Stuck In",
   },

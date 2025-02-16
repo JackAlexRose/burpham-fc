@@ -14,7 +14,6 @@ const fetchAndParseFixtures = async (table: string) => {
 
     // Select the first table
     const tableElement = $("table").first();
-    // console.log(tableElement.html());
 
     // Iterate through rows of fixtures
     tableElement.find("tr").each((_, row) => {

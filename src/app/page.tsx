@@ -1,5 +1,7 @@
 import Link from "next/link";
+import { groq } from "next-sanity";
 
+import { client } from "@/sanity/client";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { ImageCarousel } from "@/components/image-carousel";
@@ -8,8 +10,19 @@ import { UpcomingFixtures } from "@/components/upcoming-fixtures";
 import { YoutubeEmbed } from "@/components/youtube-embed";
 import { BebasRegular } from "@/components/fonts";
 import { QueryClientProviderWrapper } from "@/components/query-client-provider";
+import { HeaderDocument } from "@/types/sanity";
 
-export default function Home() {
+const headerQuery = groq`*[_type == "header" && _id == "header"][0]{ 
+  _id, 
+  description, 
+  carouselImages 
+}`;
+
+export const revalidate = 60; // invalidate every 60 seconds
+
+export default async function Home() {
+  const header = await client.fetch<HeaderDocument>(headerQuery);
+
   return (
     <div>
       {/* Hero Section */}
@@ -35,8 +48,8 @@ export default function Home() {
             </h1>
           </div>
           <p className="text-lg text-zinc-200">
-            Whether you&apos;re an experienced player or a complete beginner, we
-            have a place for you at our club.
+            {header.description ||
+              "Whether you're an experienced player or a complete beginner, we have a place for you at our club."}
           </p>
           <div className="flex gap-4">
             <Link href="/get-involved" className="z-10">

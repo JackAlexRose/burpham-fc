@@ -27,13 +27,6 @@ export default async function GetInvolved() {
         {content.description}
       </div>
 
-      <div className="mb-8 text-zinc-300 whitespace-pre-wrap">
-        Please contact us via email at{" "}
-        <Link href="mailto:burphamfootballclub@gmail.com">
-          burphamfootballclub@gmail.com
-        </Link>
-      </div>
-
       <div className="mb-8">
         <h2 className="mb-4 text-2xl font-semibold text-white">
           Connect with Us

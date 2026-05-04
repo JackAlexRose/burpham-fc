@@ -3,22 +3,40 @@ import { useQuery } from "@tanstack/react-query";
 
 import { Skeleton } from "@/components/ui/skeleton";
 
-interface LeagueTableProps {
+interface TableEntry {
+  position: number;
   team: string;
+  played: number;
+  points: number;
+  goalDifference: number;
 }
 
-const fetchLeagueTable = async (table: string) => {
-  const response = await fetch(`/api/league-table?table=${table}`);
+interface TeamData {
+  table: TableEntry[];
+}
+
+interface ClubData {
+  teams: Record<string, TeamData>;
+}
+
+interface LeagueTableProps {
+  teamKey: string;
+}
+
+const API_URL = "https://thefa-fulltime-api.jackalexanderrose.workers.dev";
+
+const fetchClubData = async (): Promise<ClubData> => {
+  const response = await fetch(API_URL);
   if (!response.ok) {
     throw new Error("Failed to fetch league table");
   }
   return response.json();
 };
 
-export function LeagueTable({ team }: LeagueTableProps) {
+export function LeagueTable({ teamKey }: LeagueTableProps) {
   const { data, isLoading, isError } = useQuery({
-    queryKey: ["league-table", team],
-    queryFn: () => fetchLeagueTable(team),
+    queryKey: ["club-data"],
+    queryFn: fetchClubData,
   });
 
   if (isLoading) {
@@ -56,17 +74,11 @@ export function LeagueTable({ team }: LeagueTableProps) {
     );
   }
 
-  if (isError) {
+  if (isError || !data?.teams?.[teamKey]) {
     return <p className="text-white">League table currently unavailable</p>;
   }
 
-  const teams = data as {
-    POS: string;
-    Team: string;
-    P: string;
-    PTS: string;
-    GD: string;
-  }[];
+  const table = data.teams[teamKey].table || [];
 
   return (
     <div className="overflow-x-auto">
@@ -81,17 +93,17 @@ export function LeagueTable({ team }: LeagueTableProps) {
           </tr>
         </thead>
         <tbody>
-          {teams.map((team) => (
-            <tr key={team.POS} className="border-b border-zinc-800">
-              <td className="p-2 text-sm text-zinc-300">{team.POS}</td>
-              {team.Team.includes("Burpham") ? (
-                <td className="p-2 text-sm text-burpham-yellow">{team.Team}</td>
+          {table.map((entry: TableEntry) => (
+            <tr key={entry.position} className="border-b border-zinc-800">
+              <td className="p-2 text-sm text-zinc-300">{entry.position}</td>
+              {entry.team.includes("Burpham") ? (
+                <td className="p-2 text-sm text-burpham-yellow">{entry.team}</td>
               ) : (
-                <td className="p-2 text-sm text-zinc-300">{team.Team}</td>
+                <td className="p-2 text-sm text-zinc-300">{entry.team}</td>
               )}
-              <td className="p-2 text-sm text-zinc-300">{team.P}</td>
-              <td className="p-2 text-sm text-zinc-300">{team.PTS}</td>
-              <td className="p-2 text-sm text-zinc-300">{team.GD}</td>
+              <td className="p-2 text-sm text-zinc-300">{entry.played}</td>
+              <td className="p-2 text-sm text-zinc-300">{entry.points}</td>
+              <td className="p-2 text-sm text-zinc-300">{entry.goalDifference}</td>
             </tr>
           ))}
         </tbody>

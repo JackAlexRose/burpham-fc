@@ -67,7 +67,7 @@ export default async function Home() {
         </div>
       </div>
 
-      {/* Cards Section */}
+       {/* Cards Section */}
       <div className="container mx-auto px-4 py-12">
         <div className="grid gap-6 md:grid-cols-2 lg:grid-cols-3">
           <Card className="bg-zinc-900/50">
@@ -76,7 +76,7 @@ export default async function Home() {
             </CardHeader>
             <CardContent>
               <QueryClientProviderWrapper>
-                <UpcomingFixtures table="601917298" />
+                <UpcomingFixtures teamKey="burpham_first" />
               </QueryClientProviderWrapper>
             </CardContent>
           </Card>
@@ -86,7 +86,7 @@ export default async function Home() {
             </CardHeader>
             <CardContent>
               <QueryClientProviderWrapper>
-                <LeagueTable team="64118803" />
+                <LeagueTable teamKey="burpham_first" />
               </QueryClientProviderWrapper>
             </CardContent>
           </Card>
@@ -96,7 +96,7 @@ export default async function Home() {
             </CardHeader>
             <CardContent>
               <QueryClientProviderWrapper>
-                <LeagueTable team="159327489" />
+                <LeagueTable teamKey="burpham_reserves" />
               </QueryClientProviderWrapper>
             </CardContent>
           </Card>

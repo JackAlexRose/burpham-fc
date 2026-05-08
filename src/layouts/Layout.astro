@@ -1,0 +1,67 @@
+---
+import { EmDashHead, EmDashBodyStart, EmDashBodyEnd } from "emdash/ui";
+import { createPublicPageContext } from "emdash/page";
+import "../styles/global.css";
+
+interface Props {
+	title: string;
+	description?: string;
+}
+
+const { title, description } = Astro.props;
+const fullTitle = title === "Burpham Football Club" ? title : `${title} | Burpham Football Club`;
+const pageDescription = description ?? "The official website of Burpham Football Club, a community football club.";
+
+const pageCtx = createPublicPageContext({
+	Astro,
+	kind: "custom",
+	pageType: "website",
+	title: fullTitle,
+	pageTitle: title,
+	description: pageDescription,
+	siteName: "Burpham Football Club",
+});
+---
+
+<!doctype html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<title>{fullTitle}</title>
+		<meta name="description" content={pageDescription} />
+		<link rel="preconnect" href="https://fonts.googleapis.com" />
+		<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+		<link href="https://fonts.googleapis.com/css2?family=Geist:wght@100..900&display=swap" rel="stylesheet" />
+		<EmDashHead page={pageCtx} />
+	</head>
+	<body class="font-sans antialiased bg-gradient-to-b from-background-start to-background-start">
+		<EmDashBodyStart page={pageCtx} />
+
+		<div class="flex items-center justify-between p-4 lg:px-8">
+			<a href="/" class="flex items-center gap-4 z-10">
+				<img
+					src="/Logo_2024.png"
+					alt="Burpham Football Club"
+					width="48"
+					height="48"
+				/>
+				<h1 class="text-2xl font-bold text-burpham-green font-bebas">
+					Burpham <span class="text-burpham-yellow">Football Club</span>
+				</h1>
+			</a>
+			<slot name="nav" />
+		</div>
+
+		<slot />
+
+		<footer class="text-end p-4 text-zinc-200 text-sm">
+			Website made by{" "}
+			<a href="https://github.com/jackalexrose" class="text-blue-400">
+				Jack Rose
+			</a>
+		</footer>
+
+		<EmDashBodyEnd page={pageCtx} />
+	</body>
+</html>

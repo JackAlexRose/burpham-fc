@@ -1,0 +1,12 @@
+name = "burpham-fc"
+compatibility_date = "2026-05-08"
+pages_build_output_dir = "dist"
+
+[[d1_databases]]
+binding = "DATABASE"
+database_name = "burpham-fc-db"
+database_id = "" # Run `wrangler d1 create burpham-fc-db` to get an ID
+
+[[r2_buckets]]
+binding = "STORAGE"
+bucket_name = "burpham-fc-storage"

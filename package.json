@@ -11,12 +11,11 @@
     "dev": "astro dev",
     "build": "astro build",
     "preview": "astro preview",
-    "start": "node ./dist/server/entry.mjs",
     "bootstrap": "emdash init",
     "typecheck": "astro check"
   },
   "dependencies": {
-    "@astrojs/node": "^10.0.0",
+    "@astrojs/cloudflare": "^12.0.0",
     "@astrojs/react": "^5.0.0",
     "@radix-ui/react-dialog": "^1.1.5",
     "@radix-ui/react-slot": "^1.1.1",
@@ -25,7 +24,6 @@
     "@tiptap/pm": "^3.23.1",
     "@tiptap/y-tiptap": "^3.0.3",
     "astro": "^6.0.1",
-    "better-sqlite3": "^12.8.0",
     "class-variance-authority": "^0.7.1",
     "clsx": "^2.1.1",
     "embla-carousel-autoplay": "^8.5.2",
@@ -44,12 +42,7 @@
     "@types/react": "^19",
     "@types/react-dom": "^19",
     "tailwindcss": "^4.0.0",
-    "typescript": "^5"
-  },
-  "pnpm": {
-    "onlyBuiltDependencies": [
-      "better-sqlite3",
-      "esbuild"
-    ]
+    "typescript": "^5",
+    "wrangler": "^4.90.0"
   }
 }

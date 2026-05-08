@@ -1,0 +1,90 @@
+---
+import Layout from "../layouts/Layout.astro";
+import { MainNav } from "../components/MainNav";
+import { ImageCarousel } from "../components/ImageCarousel";
+import { LeagueTableIsland } from "../components/LeagueTableIsland";
+import { UpcomingFixturesIsland } from "../components/UpcomingFixturesIsland";
+---
+
+<Layout title="Burpham Football Club">
+	<MainNav client:load slot="nav" />
+
+	<!-- Hero Section -->
+	<div class="container mx-auto grid gap-8 px-4 xs:py-6 sm:py-12 lg:grid-cols-2 lg:py-24">
+		<div
+			class="absolute inset-0 w-full h-[800px] sm:h-[900px] lg:h-[750px] xl:h-[850px]"
+			style="background-image: url('/pitch.png'); background-size: cover; background-position: center; opacity: 0.1;"
+		></div>
+		<div class="flex flex-col justify-center space-y-6 z-10">
+			<div class="space-y-2">
+				<h2 class="text-2xl font-medium text-white">We are</h2>
+				<h1 class="text-4xl font-bold sm:text-5xl md:text-6xl font-bebas">
+					<span class="text-burpham-green">BURPHAM</span>
+					<br />
+					<span class="text-burpham-yellow">FOOTBALL CLUB</span>
+				</h1>
+			</div>
+			<p class="text-lg text-zinc-200">
+				Whether you're an experienced player or a complete beginner, we have a place for you at our club.
+			</p>
+			<div class="flex gap-4">
+				<a href="/get-involved" class="z-10">
+					<button class="inline-flex items-center justify-center gap-2 whitespace-nowrap rounded-md text-sm font-medium h-10 px-4 py-2 text-white bg-burpham-green hover:bg-burpham-yellow transition-colors">
+						Get Stuck In
+					</button>
+				</a>
+			</div>
+		</div>
+		<div class="relative h-[400px] overflow-hidden rounded-xl lg:h-[600px]">
+			<ImageCarousel client:load />
+		</div>
+	</div>
+
+	<!-- Cards Section -->
+	<div class="container mx-auto px-4 py-12">
+		<div class="grid gap-6 md:grid-cols-2 lg:grid-cols-3">
+			<div class="rounded-lg border bg-zinc-900/50 text-card-foreground shadow-sm">
+				<div class="flex flex-col space-y-1.5 p-6">
+					<h3 class="text-2xl font-semibold leading-none tracking-tight text-white">Upcoming Fixtures</h3>
+				</div>
+				<div class="p-6 pt-0">
+					<UpcomingFixturesIsland teamKey="burpham_first" client:load />
+				</div>
+			</div>
+			<div class="rounded-lg border bg-zinc-900/50 text-card-foreground shadow-sm">
+				<div class="flex flex-col space-y-1.5 p-6">
+					<h3 class="text-2xl font-semibold leading-none tracking-tight text-white">First Team Table</h3>
+				</div>
+				<div class="p-6 pt-0">
+					<LeagueTableIsland teamKey="burpham_first" client:load />
+				</div>
+			</div>
+			<div class="rounded-lg border bg-zinc-900/50 text-card-foreground shadow-sm">
+				<div class="flex flex-col space-y-1.5 p-6">
+					<h3 class="text-2xl font-semibold leading-none tracking-tight text-white">Reserves Team Table</h3>
+				</div>
+				<div class="p-6 pt-0">
+					<LeagueTableIsland teamKey="burpham_reserves" client:load />
+				</div>
+			</div>
+		</div>
+		<div class="mt-6">
+			<div class="rounded-lg border bg-zinc-900/50 text-card-foreground shadow-sm">
+				<div class="flex flex-col space-y-1.5 p-6">
+					<h3 class="text-2xl font-semibold leading-none tracking-tight text-white">Latest Videos</h3>
+				</div>
+				<div class="p-6 pt-0">
+					<div class="relative aspect-video w-full overflow-hidden rounded-lg">
+						<iframe
+							src="https://www.youtube.com/embed?listType=playlist&list=UUHbJ031WLO_qEwFDmIy1IDg"
+							title="Latest Video"
+							allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+							allowfullscreen
+							class="absolute left-0 top-0 h-full w-full border-0"
+						></iframe>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</Layout>

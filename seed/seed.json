@@ -1,0 +1,180 @@
+{
+	"$schema": "https://emdashcms.com/seed.schema.json",
+	"version": "1",
+	"meta": {
+		"name": "Burpham FC",
+		"description": "Burpham Football Club website",
+		"author": "Jack Rose"
+	},
+	"settings": {
+		"title": "Burpham Football Club",
+		"tagline": "The official website of Burpham Football Club, a community football club."
+	},
+	"collections": [
+		{
+			"slug": "posts",
+			"label": "Posts",
+			"labelSingular": "Post",
+			"supports": ["drafts", "revisions", "search"],
+			"fields": [
+				{
+					"slug": "title",
+					"label": "Title",
+					"type": "string",
+					"required": true,
+					"searchable": true
+				},
+				{
+					"slug": "featured_image",
+					"label": "Featured Image",
+					"type": "image"
+				},
+				{
+					"slug": "content",
+					"label": "Content",
+					"type": "portableText",
+					"searchable": true
+				},
+				{
+					"slug": "excerpt",
+					"label": "Excerpt",
+					"type": "text"
+				}
+			]
+		},
+		{
+			"slug": "pages",
+			"label": "Pages",
+			"labelSingular": "Page",
+			"supports": ["drafts", "revisions", "search"],
+			"fields": [
+				{
+					"slug": "title",
+					"label": "Title",
+					"type": "string",
+					"required": true,
+					"searchable": true
+				},
+				{
+					"slug": "content",
+					"label": "Content",
+					"type": "portableText",
+					"searchable": true
+				}
+			]
+		},
+		{
+			"slug": "committee_members",
+			"label": "Committee Members",
+			"labelSingular": "Committee Member",
+			"supports": ["drafts"],
+			"fields": [
+				{
+					"slug": "title",
+					"label": "Role",
+					"type": "string",
+					"required": true
+				},
+				{
+					"slug": "name",
+					"label": "Name",
+					"type": "string",
+					"required": true
+				},
+				{
+					"slug": "role",
+					"label": "Role Title",
+					"type": "string"
+				},
+				{
+					"slug": "description",
+					"label": "Description",
+					"type": "text"
+				},
+				{
+					"slug": "photo",
+					"label": "Photo",
+					"type": "image"
+				}
+			]
+		},
+		{
+			"slug": "sponsors",
+			"label": "Sponsors",
+			"labelSingular": "Sponsor",
+			"supports": ["drafts"],
+			"fields": [
+				{
+					"slug": "title",
+					"label": "Name",
+					"type": "string",
+					"required": true
+				},
+				{
+					"slug": "subtitle",
+					"label": "Subtitle",
+					"type": "string"
+				},
+				{
+					"slug": "description",
+					"label": "Description",
+					"type": "text"
+				},
+				{
+					"slug": "website_url",
+					"label": "Website URL",
+					"type": "string"
+				}
+			]
+		}
+	],
+	"menus": [
+		{
+			"name": "primary",
+			"label": "Primary Navigation",
+			"items": [
+				{
+					"type": "custom",
+					"label": "Home",
+					"url": "/"
+				},
+				{
+					"type": "custom",
+					"label": "About Us",
+					"url": "/about-us"
+				},
+				{
+					"type": "custom",
+					"label": "Get Stuck In",
+					"url": "/get-involved"
+				}
+			]
+		}
+	],
+	"content": {
+		"pages": [
+			{
+				"id": "get-involved",
+				"slug": "get-involved",
+				"status": "published",
+				"data": {
+					"title": "Get Stuck In",
+					"content": [
+						{
+							"_type": "block",
+							"style": "normal",
+							"children": [
+								{
+									"_type": "span",
+									"text": "Whether you're an experienced player or a complete beginner, we have a place for you at our club. Get in touch via our social media channels to find out more about training sessions and match days.",
+									"_key": "k1"
+								}
+							],
+							"_key": "k0"
+						}
+					]
+				}
+			}
+		]
+	}
+}

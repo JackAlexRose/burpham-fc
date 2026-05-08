@@ -1,0 +1,64 @@
+@import "tailwindcss";
+
+@theme {
+	--color-background: hsl(0 0% 100%);
+	--color-background-start: hsl(0 0% 8%);
+	--color-foreground: hsl(0 0% 3.9%);
+	--color-burpham-green: hsl(152 99% 27%);
+	--color-burpham-yellow: hsl(58 84% 52%);
+	--color-card: hsl(0 0% 100%);
+	--color-card-foreground: hsl(0 0% 3.9%);
+	--color-popover: hsl(0 0% 100%);
+	--color-popover-foreground: hsl(0 0% 3.9%);
+	--color-primary: hsl(0 0% 9%);
+	--color-primary-foreground: hsl(0 0% 98%);
+	--color-secondary: hsl(0 0% 96.1%);
+	--color-secondary-foreground: hsl(0 0% 9%);
+	--color-muted: hsl(0 0% 96.1%);
+	--color-muted-foreground: hsl(0 0% 45.1%);
+	--color-accent: hsl(0 0% 96.1%);
+	--color-accent-foreground: hsl(0 0% 9%);
+	--color-destructive: hsl(0 84.2% 60.2%);
+	--color-destructive-foreground: hsl(0 0% 98%);
+	--color-border: hsl(0 0% 89.8%);
+	--color-input: hsl(0 0% 89.8%);
+	--color-ring: hsl(0 0% 3.9%);
+	--radius-lg: 0.5rem;
+	--radius-md: calc(0.5rem - 2px);
+	--radius-sm: calc(0.5rem - 4px);
+}
+
+@font-face {
+	font-family: "Bebas";
+	src: url("/fonts/Bebas-Regular.ttf") format("truetype");
+	font-weight: 400;
+	font-style: normal;
+	font-display: swap;
+}
+
+html {
+	background-color: rgb(20, 20, 20);
+}
+
+body {
+	font-family: "Geist", Arial, Helvetica, sans-serif;
+}
+
+* {
+	border-color: var(--color-border);
+}
+
+body {
+	background-color: var(--color-background);
+	color: var(--color-foreground);
+}
+
+.font-bebas {
+	font-family: "Bebas", sans-serif;
+}
+
+button,
+[role="button"],
+a {
+	cursor: pointer;
+}

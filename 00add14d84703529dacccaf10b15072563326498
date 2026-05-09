@@ -1,0 +1,23 @@
+src/pages/about-us.astro
+  f85596c4d5aba149 8-17,37-61,63-64
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.2.8",
+  "base_commit_sha": "00add14d84703529dacccaf10b15072563326498",
+  "prompts": {
+    "f85596c4d5aba149": {
+      "agent_id": {
+        "tool": "opencode",
+        "id": "ses_1f3033663ffeeXuOcq6cB5hgvP",
+        "model": "anthropic/claude-opus-4-6"
+      },
+      "human_author": "Jack Rose",
+      "messages": [],
+      "total_additions": 37,
+      "total_deletions": 23,
+      "accepted_lines": 37,
+      "overriden_lines": 0
+    }
+  }
+}

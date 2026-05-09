@@ -5,6 +5,16 @@ import { getEmDashCollection } from "emdash";
 
 const { entries: committeeMembers } = await getEmDashCollection("committee_members");
 const { entries: sponsors } = await getEmDashCollection("sponsors");
+
+const getMediaUrl = Astro.locals.emdash?.getPublicMediaUrl;
+
+function resolveImageSrc(image?: { id?: string; src?: string; meta?: Record<string, unknown> }): string | undefined {
+	if (!image) return undefined;
+	const storageKey = image.meta?.storageKey as string | undefined;
+	if (storageKey && getMediaUrl) return getMediaUrl(storageKey);
+	if (storageKey) return `/_emdash/api/media/file/${storageKey}`;
+	return image.src;
+}
 ---
 
 <Layout title="About Us" description="Learn more about Burpham Football Club and our history.">
@@ -24,30 +34,34 @@ const { entries: sponsors } = await getEmDashCollection("sponsors");
 		<div class="mb-8">
 			<h2 class="mb-4 text-2xl font-semibold text-white">Committee Members</h2>
 			<div class="grid gap-6 md:grid-cols-2">
-				{committeeMembers.map((member) => (
-					<div class="rounded-lg border bg-zinc-900/50 text-card-foreground shadow-sm">
-						<div class="flex flex-col space-y-1.5 p-6">
-							<h3 class="text-2xl font-semibold leading-none tracking-tight text-white">
-								{member.data.role || member.data.title}
-							</h3>
+				{committeeMembers.map((member) => {
+					const photo = member.data.photo;
+					const photoSrc = resolveImageSrc(photo);
+					return (
+						<div class="rounded-lg border bg-zinc-900/50 text-card-foreground shadow-sm">
+							<div class="flex flex-col space-y-1.5 p-6">
+								<h3 class="text-2xl font-semibold leading-none tracking-tight text-white">
+									{member.data.role || member.data.title}
+								</h3>
+							</div>
+							<div class="p-6 pt-0">
+								<p class="text-xl font-semibold text-white">{member.data.name}</p>
+								<p class="mb-4 text-zinc-400 mt-2">{member.data.description}</p>
+								{photoSrc && (
+									<div class="flex space-x-4 items-center justify-center">
+										<img
+											src={photoSrc}
+											alt={photo?.alt || member.data.name || "Committee member"}
+											width="200"
+											height="200"
+											class="rounded-full object-cover"
+										/>
+									</div>
+								)}
+							</div>
 						</div>
-						<div class="p-6 pt-0">
-							<p class="text-xl font-semibold text-white">{member.data.name}</p>
-							<p class="mb-4 text-zinc-400 mt-2">{member.data.description}</p>
-							{member.data.photo?.src && (
-								<div class="flex space-x-4 items-center justify-center">
-									<img
-										src={member.data.photo.src}
-										alt={member.data.name || "Committee member"}
-										width="200"
-										height="200"
-										class="rounded-full"
-									/>
-								</div>
-							)}
-						</div>
-					</div>
-				))}
+					);
+				})}
 			</div>
 		</div>
 

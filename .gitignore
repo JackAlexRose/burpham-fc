@@ -9,6 +9,9 @@ dist
 uploads
 data.db
 
+# wrangler
+.wrangler
+
 # environment
 .env
 .env.*
@@ -23,6 +26,7 @@ npm-debug.log*
 yarn-debug.log*
 yarn-error.log*
 .pnpm-debug.log*
+stderr.log
 
 # typescript
 *.tsbuildinfo

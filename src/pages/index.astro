@@ -7,7 +7,7 @@ import { UpcomingFixturesIsland } from "../components/UpcomingFixturesIsland";
 ---
 
 <Layout title="Burpham Football Club">
-	<MainNav client:load slot="nav" />
+	<MainNav client:only="react" slot="nav" />
 
 	<!-- Hero Section -->
 	<div class="container mx-auto grid gap-8 px-4 xs:py-6 sm:py-12 lg:grid-cols-2 lg:py-24">
@@ -36,7 +36,7 @@ import { UpcomingFixturesIsland } from "../components/UpcomingFixturesIsland";
 			</div>
 		</div>
 		<div class="relative h-[400px] overflow-hidden rounded-xl lg:h-[600px]">
-			<ImageCarousel client:load />
+			<ImageCarousel client:only="react" />
 		</div>
 	</div>
 
@@ -48,7 +48,7 @@ import { UpcomingFixturesIsland } from "../components/UpcomingFixturesIsland";
 					<h3 class="text-2xl font-semibold leading-none tracking-tight text-white">Upcoming Fixtures</h3>
 				</div>
 				<div class="p-6 pt-0">
-					<UpcomingFixturesIsland teamKey="burpham_first" client:load />
+					<UpcomingFixturesIsland teamKey="burpham_first" client:only="react" />
 				</div>
 			</div>
 			<div class="rounded-lg border bg-zinc-900/50 text-card-foreground shadow-sm">
@@ -56,7 +56,7 @@ import { UpcomingFixturesIsland } from "../components/UpcomingFixturesIsland";
 					<h3 class="text-2xl font-semibold leading-none tracking-tight text-white">First Team Table</h3>
 				</div>
 				<div class="p-6 pt-0">
-					<LeagueTableIsland teamKey="burpham_first" client:load />
+					<LeagueTableIsland teamKey="burpham_first" client:only="react" />
 				</div>
 			</div>
 			<div class="rounded-lg border bg-zinc-900/50 text-card-foreground shadow-sm">
@@ -64,7 +64,7 @@ import { UpcomingFixturesIsland } from "../components/UpcomingFixturesIsland";
 					<h3 class="text-2xl font-semibold leading-none tracking-tight text-white">Reserves Team Table</h3>
 				</div>
 				<div class="p-6 pt-0">
-					<LeagueTableIsland teamKey="burpham_reserves" client:load />
+					<LeagueTableIsland teamKey="burpham_reserves" client:only="react" />
 				</div>
 			</div>
 		</div>

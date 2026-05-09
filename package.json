@@ -3,10 +3,6 @@
   "version": "0.2.0",
   "private": true,
   "type": "module",
-  "emdash": {
-    "label": "Burpham FC",
-    "seed": "seed/seed.json"
-  },
   "scripts": {
     "dev": "astro dev",
     "build": "astro build",
@@ -17,6 +13,7 @@
   "dependencies": {
     "@astrojs/cloudflare": "^13.0.0",
     "@astrojs/react": "^5.0.0",
+    "@emdash-cms/cloudflare": "^0.10.0",
     "@radix-ui/react-dialog": "^1.1.5",
     "@radix-ui/react-slot": "^1.1.1",
     "@tanstack/react-query": "^5.66.0",
@@ -44,5 +41,12 @@
     "tailwindcss": "^4.0.0",
     "typescript": "^5",
     "wrangler": "^4.90.0"
+  },
+  "resolutions": {
+    "@tanstack/react-query": "5.100.9"
+  },
+  "emdash": {
+    "label": "Burpham FC",
+    "seed": "seed/seed.json"
   }
 }

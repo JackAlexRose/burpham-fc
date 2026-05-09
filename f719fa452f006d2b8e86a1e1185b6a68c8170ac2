@@ -1,0 +1,23 @@
+astro.config.mjs
+  f85596c4d5aba149 19,23
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.2.8",
+  "base_commit_sha": "f719fa452f006d2b8e86a1e1185b6a68c8170ac2",
+  "prompts": {
+    "f85596c4d5aba149": {
+      "agent_id": {
+        "tool": "opencode",
+        "id": "ses_1f3033663ffeeXuOcq6cB5hgvP",
+        "model": "anthropic/claude-opus-4-6"
+      },
+      "human_author": "Jack Rose",
+      "messages": [],
+      "total_additions": 2,
+      "total_deletions": 0,
+      "accepted_lines": 2,
+      "overriden_lines": 0
+    }
+  }
+}

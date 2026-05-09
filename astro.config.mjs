@@ -16,9 +16,11 @@ export default defineConfig({
   vite: {
     plugins: [tailwindcss()],
   },
+  site: "https://burphamfc.co.uk",
   integrations: [
     react(),
     emdash({
+      siteUrl: "https://burphamfc.co.uk",
       database: d1({ binding: "DATABASE" }),
       storage: r2({
         binding: "STORAGE",

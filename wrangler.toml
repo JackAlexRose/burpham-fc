@@ -1,12 +1,14 @@
 name = "burpham-fc"
 compatibility_date = "2026-05-08"
-pages_build_output_dir = "dist"
 compatibility_flags = ["nodejs_compat"]
+
+[assets]
+directory = "dist/client"
 
 [[d1_databases]]
 binding = "DATABASE"
 database_name = "burpham-fc-db"
-database_id = "0c9e40b8-dbe1-410c-b62c-6755fb122c3f" # Run `wrangler d1 create burpham-fc-db` to get an ID
+database_id = "0c9e40b8-dbe1-410c-b62c-6755fb122c3f"
 
 [[r2_buckets]]
 binding = "STORAGE"
